@@ -154,15 +154,16 @@ class GrainPrinter {
 	
 	private String convert(Corn model, int level){
 		StringBuilder buf = new StringBuilder();
-		//buf.append("\u001B[5;34m");
+		buf.append("\u001B[5;31m");
 		buf.append("{").append(model.name()).append("}");
-		//buf.append("\u001B[0m");
+		buf.append("\u001B[0m");
 		buf.append("\n");
 		for(Grain property:model.properties()){
 			if(!property.isNull()){
 				if(property.multiple()){
 					buf
 						.append(ident(level+1))
+						.append(property.index()).append(" ")
 						.append(property.name()).append(" : [")
 						.append(property.type().getSimpleName())
 						.append("]\n")
