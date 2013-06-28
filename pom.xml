@@ -106,15 +106,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-		        <groupId>org.apache.maven.plugins</groupId>
-		        <artifactId>maven-release-plugin</artifactId>
-		        <version>2.4</version>
-		        <configuration>
-				    <useReleaseProfile>false</useReleaseProfile>
-					<arguments>-Pcustom-release-profile</arguments>
-				</configuration>
-		      </plugin>
 		</plugins>
 	</build>
 </project>
