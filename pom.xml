@@ -53,17 +53,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	<profiles>
-		<profile>
-			<id>release-profile</id>
-			<activation>
-				<property>
-					<name>performRelease</name>
-					<value>true</value>
-				</property>
-			</activation>
-		</profile>
-	</profiles>
 	<build>
 	    <pluginManagement>
 	      <plugins>
