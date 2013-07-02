@@ -141,7 +141,7 @@ public class Printer {
 
 		}
 		public void print(Cursor cursor, Appendable buf, Object val) throws IOException {
-			append(buf,"ARRAY", ANSI.Color.BLUE);
+			append(buf,"ARRAY", ANSI.Color.MAGENTA);
 			if(val instanceof Iterable){
 				Iterable it = (Iterable)val;
 				Integer index = 0;
@@ -150,7 +150,7 @@ public class Printer {
 					cursor.enter(key);
 					nl(buf);
 					ident(buf,cursor.level());
-					append(buf, key, ANSI.Color.BLUE);
+					append(buf, key, ANSI.Color.MAGENTA);
 					append(buf, " : ");
 					Printer.print(cursor, buf, item);
 					cursor.exit();
@@ -163,7 +163,7 @@ public class Printer {
 					cursor.enter(key);
 					nl(buf);
 					ident(buf,cursor.level());
-					append(buf, key, ANSI.Color.BLUE);
+					append(buf, key, ANSI.Color.MAGENTA);
 					append(buf, " : ");
 					Printer.print(cursor, buf, item);
 					cursor.exit();
@@ -187,13 +187,13 @@ public class Printer {
 		public void print(Cursor cursor, Appendable buf, Object val) throws IOException {
 			Map<Object,Object> map = (Map<Object,Object>)val;
 			int index = 0;
-			append(buf,"OBJECT", ANSI.Color.MAGENTA);
+			append(buf,"OBJECT", ANSI.Color.BLUE);
 			for (Map.Entry<Object,Object> entry:map.entrySet()){
 				String key = getKey(entry.getKey(), index++);
 				cursor.enter(key);
 				nl(buf);
 				ident(buf,cursor.level());
-				append(buf, key, ANSI.Color.MAGENTA);
+				append(buf, key, ANSI.Color.BLUE);
 				append(buf, " : ");
 				Printer.print(cursor,buf,entry.getValue());
 
@@ -229,7 +229,7 @@ public class Printer {
 	public static void print(Cursor cursor, Appendable buf, Object val){
 		try{
 			if(val==null){
-				ANSI.append(buf,"null", ANSI.Color.RED,null,ANSI.Attribute.BRIGHT);return;
+				ANSI.append(buf,"null", ANSI.Color.RED);return;
 			}
 			for(ObjectPrinter printer:PRINTERS){
 				if(printer.support(val)){

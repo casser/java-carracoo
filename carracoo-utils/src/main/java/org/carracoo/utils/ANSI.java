@@ -29,54 +29,17 @@ public class ANSI {
 		BLUE, MAGENTA, CYAN, WHITE
 	}
 
-	private static final String PREFIX = "\u001b["; //NOI18N
-	private static final String SUFFIX = "m";
-	private static final String SEPARATOR = ";";
-	private static final String END = PREFIX + SUFFIX;
-
-
 	public static String format(String text, Color foreground) {
-		return format(text, null, foreground, null);
-	}
-
-	public static String format(String text, Color foreground, Color background) {
-		return format(text, null, foreground, background);
-	}
-
-	public static String format(String text, Attribute attr, Color foreground, Color background) {
 		StringBuilder buff = new StringBuilder();
-		append(buff,text,foreground,background,attr);
+		append(buff,text,foreground);
 		return buff.toString();
 	}
 
 
-
-	public static void append(Appendable buff, String text, Color foreground) {
-		append(buff, text, foreground, null, null);
-	}
-	public static void append(Appendable buff, String text, Color foreground,Attribute attr) {
-		append(buff, text, foreground, null, attr);
-	}
-	public static void append(Appendable buff, String text, Color foreground, Color background) {
-		append(buff, text,  foreground, background, null);
-	}
-	public static void append(Appendable buff, String text,Color foreground, Color background, Attribute attr) {
+	public static void append(Appendable buff, String text,Color foreground) {
 		try{
-			buff.append(PREFIX);
-			if (attr != null) {
-				buff.append(attr.toString());
-			}
-			if (foreground != null) {
-				buff.append(SEPARATOR);
-				buff.append("" + (30 + foreground.ordinal()));
-			}
-			if (background != null) {
-				buff.append(SEPARATOR);
-				buff.append("" + (40 + background.ordinal()));
-			}
-			buff.append(SUFFIX);
-			buff.append(text);
-			buff.append(END);
+			String str = "\u001b["+(30 + foreground.ordinal())+"m"+text+"\u001b[0m";
+			buff.append(str);
 		}catch(Exception ex){
 			System.err.print(ex);
 		}

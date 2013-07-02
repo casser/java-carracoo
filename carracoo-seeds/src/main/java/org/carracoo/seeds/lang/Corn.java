@@ -8,8 +8,6 @@ import org.carracoo.seeds.SeedView;
 import org.carracoo.seeds.exceptions.ValidationException;
 import org.carracoo.utils.ANSI;
 import org.carracoo.utils.Printer;
-import org.carracoo.seeds.exceptions.ValidationException;
-import org.carracoo.utils.ANSI;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -141,10 +139,10 @@ public class Corn {
 	public Corn set(SeedView view, Object value) {
 		return null;
 	}
-	{Printer.add(new GrainPrinter());}
+	{Printer.add(new CornPrinter());}
 }
 
-class GrainPrinter extends Printer.ObjectPrinter{
+class CornPrinter extends Printer.ObjectPrinter{
 
 	@Override
 	public boolean support(Object val) {
@@ -154,12 +152,12 @@ class GrainPrinter extends Printer.ObjectPrinter{
 	@Override
 	public void print(Printer.Cursor cursor, Appendable buf, Object val) throws IOException {
 		Corn map = (Corn)val;
-		append(buf,map.type().getSimpleName(), ANSI.Color.MAGENTA);
+		append(buf,map.type().getSimpleName(), ANSI.Color.BLUE);
 		for (Grain property:map.properties()){
 			cursor.enter(property.name());
 			nl(buf);
 			ident(buf,cursor.level());
-			append(buf, property.name(), ANSI.Color.MAGENTA);
+			append(buf, property.name(), ANSI.Color.BLUE);
 			append(buf, " : ");
 			if(property.multiple()){
 				Integer index = 0;
@@ -170,7 +168,7 @@ class GrainPrinter extends Printer.ObjectPrinter{
 					ident(buf,cursor.level());
 					append(buf, index.toString(), ANSI.Color.MAGENTA);
 					append(buf, " : ");
-					Printer.print(cursor,buf,property.get());
+					Printer.print(cursor,buf,item);
 					cursor.exit();
 				}
 			} else {
