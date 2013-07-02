@@ -2,22 +2,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<parent>
 		<artifactId>carracoo</artifactId>
-		<groupId>com.carracoo</groupId>
-		<version>0.0.2-SNAPSHOT</version>
+		<groupId>org.carracoo</groupId>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<name>carracoo-bson</name>
 	<artifactId>carracoo-bson</artifactId>
-
 	<dependencies>
 		<dependency>
-			<groupId>com.carracoo</groupId>
+			<groupId>org.carracoo</groupId>
 			<artifactId>carracoo-seeds</artifactId>
 			<version>${project.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.carracoo</groupId>
+			<groupId>org.carracoo</groupId>
 			<artifactId>carracoo-utils</artifactId>
 			<version>${project.version}</version>
 		</dependency>
