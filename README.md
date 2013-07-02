@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/casser/java-carracoo.png)](https://travis-ci.org/casser/javacarracoo)
+[![Build Status](https://travis-ci.org/casser/java-carracoo.png)](https://travis-ci.org/casser/java-carracoo)
 
 # Carracoo
 

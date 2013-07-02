@@ -8,10 +8,10 @@
 		">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.carracoo</groupId>
+	<groupId>org.carracoo</groupId>
 	<artifactId>carracoo</artifactId>
 	<packaging>pom</packaging>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>carracoo</name>
 	<url>https://github.com/casser/java-carracoo</url>
 
@@ -22,6 +22,10 @@
 		<module>carracoo-bson</module>
 		<module>carracoo-tests</module>
 	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
 	<distributionManagement>
 		<repository>
